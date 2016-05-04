@@ -7,6 +7,7 @@
 	<link href="css/general.css" type="text/css" rel="stylesheet">
 	<link href="css/contact.css" type="text/css" rel="stylesheet">
 	<script src="js/interact.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>	
 </head>
 <!---------------------------------------BODY----------------------------------------->  
 <body>
@@ -78,13 +79,31 @@
 <!--------------------------------------CONTENT----------------------------------------->   
         <section id="content">  <!--main content contained here-->
 		<h2 class="formatTitle">Contact Us</h2>
-			<div id="contactbox">
+			<div id="locationBox">
+			<div id="locationText">
 				<h2> Locations </h2>
-				<p><b> Link to a Google Maps here </b></p>
-				<p> c/o Diversity Institute </p> 
-				<p> Ryerson University </p>
-				<p> 350 Victoria Street </p>
-				<p> Toronto, ON M5B 2K3 </p>
+				<p> c/o Diversity Institute <br>
+				 Ryerson University <br>
+				 350 Victoria Street <br>
+				 Toronto, ON M5B 2K3</p>
+			</div>
+				<div id="map">
+					<script>
+						function initMap() {
+							var myLatLng = {lat: 43.6578806, lng: -79.3826448};
+							var mapDiv = document.getElementById('map');
+							var map = new google.maps.Map(mapDiv, {
+								center: myLatLng,
+								zoom: 14
+							});
+							var marker = new google.maps.Marker({
+								position: myLatLng,
+								map: map,
+								title: 'NPower Canada'
+							});
+						}
+					</script>
+    			</div>
 			</div>
             <div id="contactbox">
 				<h2> Directors </h2>
